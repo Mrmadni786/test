@@ -1,0 +1,48 @@
+/* Overlay for background dim */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+/* Mobile slide-in menu */
+.nav-flyout {
+  position: fixed;
+  top: 0;
+  left: -100%; /* hidden initially */
+  height: 100vh;
+  width: 75%;
+  max-width: 280px;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 1rem;
+  transition: left 0.3s ease-in-out;
+  z-index: 1050;
+}
+
+.nav-flyout.show {
+  left: 0; /* slides in */
+}
+
+/* Make sure normal navbar is fine on large screens */
+@media (min-width: 992px) {
+  .nav-flyout {
+    position: static;
+    height: auto;
+    width: auto;
+    max-width: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    transition: none;
+  }
+}
+
+/* Extra left padding for mobile links */
+.px-mobile {
+  padding-left: 1rem !important;
+}
